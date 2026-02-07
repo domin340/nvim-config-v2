@@ -11,6 +11,7 @@ return {
 		require('neo-tree').setup {
 			sources = {
 				'document_symbols',
+				'buffers',
 				'filesystem',
 				'git_status',
 			},
@@ -25,6 +26,7 @@ return {
 		vim.keymap.set('n', '-', '<CMD>Neotree filesystem toggle right<CR>')
 		vim.keymap.set('n', '<leader>ee', '<CMD>Neotree filesystem reveal right<CR>')
 		vim.keymap.set('n', '<leader>ed', '<CMD>Neotree document_symbols reveal right<CR>')
+		vim.keymap.set('n', '<leader>eb', '<CMD>Neotree buffers reveal right<CR>')
 		vim.keymap.set('n', '<leader>eg', '<CMD>Neotree git_status reveal right<CR>')
 		vim.keymap.set('n', '<leader>ec', '<CMD>Neotree close<CR>')
 	end,
