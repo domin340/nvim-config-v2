@@ -27,7 +27,7 @@ return {
 		event = 'VeryLazy',
 		opts = {},
 	},
-	--[[{
+	--[[ {
 		'lukas-reineke/indent-blankline.nvim',
 		event = 'BufReadPre',
 		opts = {
@@ -40,5 +40,5 @@ return {
 		config = function(_, opts)
 			require('ibl').setup(opts)
 		end,
-	},]]
+	}, ]]
 }
