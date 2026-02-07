@@ -22,12 +22,31 @@ return {
 		},
 	},
 	{
+		'mcauley-penney/visual-whitespace.nvim',
+		event = 'ModeChanged *:[vV\22]',
+		opts = {
+			fileformat_chars = {
+				unix = ' ␊',
+				mac = ' ␊',
+				dos = ' ␊',
+			},
+		},
+	},
+	{
 		'kylechui/nvim-surround',
 		version = '^3.0.0',
 		event = 'VeryLazy',
 		opts = {},
 	},
-	--[[ {
+	{
+		'nmac427/guess-indent.nvim',
+		opts = {},
+		config = function(_, opts)
+			require('guess-indent').setup(opts)
+			vim.keymap.set('n', '<leader>ii', '<CMD>GuessIndent<CR>', { desc = 'guess-indent.nvim' })
+		end,
+	},
+	{
 		'lukas-reineke/indent-blankline.nvim',
 		event = 'BufReadPre',
 		opts = {
@@ -40,5 +59,5 @@ return {
 		config = function(_, opts)
 			require('ibl').setup(opts)
 		end,
-	}, ]]
+	},
 }
