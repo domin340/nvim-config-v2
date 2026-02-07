@@ -2,6 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- cursor stuff
+vim.wo.scrolloff = 5
+
 -- leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
