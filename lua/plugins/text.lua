@@ -46,11 +46,6 @@ return {
 		opts = {},
 		config = function(_, opts)
 			require('guess-indent').setup(opts)
-			if true then
-				print 'first statement evaluated to true'
-			elseif true then
-				print 'something is being done'
-			end
 			vim.keymap.set('n', '<leader>ii', '<CMD>GuessIndent<CR>', { desc = 'guess-indent.nvim' })
 		end,
 	},
