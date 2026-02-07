@@ -26,7 +26,7 @@ return {
 		event = 'ModeChanged *:[vV\22]',
 		opts = {
 			list_chars = {
-				tab = '⇾'
+				tab = '⇾',
 			},
 			fileformat_chars = {
 				unix = ' ␊',
