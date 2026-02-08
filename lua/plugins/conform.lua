@@ -9,6 +9,8 @@ return {
 			luau = { 'stylua' },
 			-- </other>
 
+			cs = { 'csharpier' },
+
 			-- <web stuff>
 			javascript = prettier,
 			typescript = prettier,
