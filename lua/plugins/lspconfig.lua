@@ -6,6 +6,16 @@ return {
 			'mason-org/mason.nvim',
 			'nvim-telescope/telescope.nvim',
 			'saghen/blink.cmp',
+			{
+				'hasansujon786/nvim-navbuddy',
+				dependencies = {
+					'SmiteshP/nvim-navic',
+					'MunifTanjim/nui.nvim',
+					'numToStr/Comment.nvim',
+					'nvim-telescope/telescope.nvim',
+				},
+				opts = { lsp = { auto_attach = true } },
+			},
 		},
 		config = function()
 			---@param show_all boolean
