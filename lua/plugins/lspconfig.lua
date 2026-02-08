@@ -7,7 +7,7 @@ return {
 			'nvim-telescope/telescope.nvim',
 			'saghen/blink.cmp',
 			{
-				'hasansujon786/nvim-navbuddy',
+				'SmiteshP/nvim-navbuddy',
 				dependencies = {
 					'SmiteshP/nvim-navic',
 					'MunifTanjim/nui.nvim',
@@ -15,6 +15,10 @@ return {
 					'nvim-telescope/telescope.nvim',
 				},
 				opts = { lsp = { auto_attach = true } },
+				config = function(_, opts)
+					require('nvim-navbuddy').setup(opts)
+					vim.keymap.set('n', '<leader>xo', '<CMD>Navbuddy<CR>', { desc = 'Opens Navbuddy' })
+				end,
 			},
 		},
 		config = function()
