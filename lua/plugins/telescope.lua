@@ -6,15 +6,17 @@ return {
 		'nvim-telescope/telescope-ui-select.nvim',
 	},
 	config = function()
+		local telescope = require 'telescope'
+
 		-- initialize telescope and extensions
-		require('telescope').setup {
+		telescope.setup {
 			extensions = {
 				['ui-select'] = { require('telescope.themes').get_dropdown {} },
 			},
 		}
 
 		-- load everything
-		require('telescope').load_extension 'ui-select'
+		telescope.load_extension 'ui-select'
 		local builtin = require 'telescope.builtin'
 
 		-- keymaps
