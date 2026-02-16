@@ -37,7 +37,7 @@ end
 vim.lsp.config('lua_ls', lua_ls_settings())
 
 vim.lsp.enable {
-	'omnisharp',
+	'clangd',
 	'ts_ls',
 	'pyright',
 	'lua_ls',
