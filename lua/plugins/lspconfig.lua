@@ -2,24 +2,9 @@ return {
 	{
 		'neovim/nvim-lspconfig',
 		dependencies = {
-			'SmiteshP/nvim-navic',
 			'mason-org/mason.nvim',
 			'nvim-telescope/telescope.nvim',
 			'saghen/blink.cmp',
-			{
-				'SmiteshP/nvim-navbuddy',
-				dependencies = {
-					'SmiteshP/nvim-navic',
-					'MunifTanjim/nui.nvim',
-					'numToStr/Comment.nvim',
-					'nvim-telescope/telescope.nvim',
-				},
-				opts = { lsp = { auto_attach = true } },
-				config = function(_, opts)
-					require('nvim-navbuddy').setup(opts)
-					vim.keymap.set('n', '<leader>xo', '<CMD>Navbuddy<CR>', { desc = 'Opens Navbuddy' })
-				end,
-			},
 		},
 		config = function()
 			---@param show_all boolean

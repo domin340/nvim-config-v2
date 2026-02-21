@@ -1,16 +1,7 @@
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 if vim.lsp.config then
-	local function on_attach(client, bufnr)
-		if client.server_capabilities.documentSymbolProvider then
-			require('nvim-navic').attach(client, bufnr)
-		end
-	end
-
-	vim.lsp.config('*', {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
+	vim.lsp.config('*', { capabilities = capabilities })
 end
 
 local function lua_ls_settings()
