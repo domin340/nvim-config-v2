@@ -1,15 +1,18 @@
 local prettier = { 'prettierd', 'prettier' }
+local clang = { 'clang-format' }
+local stylua = { 'stylua' }
 
 return {
 	'stevearc/conform.nvim',
 	opts = {
 	   formatters_by_ft = {
 		   -- <other>
-			lua = { 'stylua' },
-			luau = { 'stylua' },
+			lua = stylua,
+			luau = stylua,
 			-- </other>
 
-			cs = { 'csharpier' },
+			c = clang,
+			cpp = clang,
 
 			-- <web stuff>
 			javascript = prettier,
