@@ -14,8 +14,11 @@ local function setup_colors()
 	return colors
 end
 
+local Perms = require 'components.perms'
+
 local statusline = {
 	hl = { bg = 'bg_statusline' },
+	Perms,
 	{ provider = '%=' },
 }
 
