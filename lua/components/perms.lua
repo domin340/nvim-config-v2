@@ -2,6 +2,8 @@
 ---@field file_abspath string
 ---@field perm_string string
 local Perms = {
+	update = { 'BufEnter', 'BufLeave' },
+
 	---@param self components.perms
 	init = function(self)
 		self.file_abspath = vim.fn.expand '%:p'
