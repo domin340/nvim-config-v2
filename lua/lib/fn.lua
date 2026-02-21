@@ -4,6 +4,21 @@ script consisting of many helper functions
 
 local M = {}
 
+---@param name string
+function M.hl(name)
+	return vim.api.nvim_get_hl(0, { name = name })
+end
+
+---@param name string
+function M.bg(name)
+	return string.format('#%06x', M.hl(name).bg)
+end
+
+---@param name string
+function M.fg(name)
+	return string.format('#%06x', M.hl(name).fg)
+end
+
 ---sorts given table by how close it is to the currently opened buffer
 ---@param tbl string[] table of absolute paths
 function M.sort_by_buf(tbl)
