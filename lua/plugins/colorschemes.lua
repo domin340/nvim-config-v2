@@ -1,4 +1,5 @@
 return {
+	{ 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 	{
 		'erl-koenig/theme-hub.nvim',
 		lazy = false,
