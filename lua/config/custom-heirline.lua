@@ -31,7 +31,7 @@ local LastLine = require 'components.last-line'
 local ReadOfPage = require 'components.read-of-page'
 local Mode = require 'components.mode'
 
-local sloop = { provider = '|', hl = { fg = 'text' } }
+local sloop = { provider = '│', hl = { fg = 'text' } }
 
 local statusline = {
 	Space,
@@ -40,13 +40,6 @@ local statusline = {
 	{
 		hl = { fg = 'str' },
 		Modified,
-		{
-			condition = function()
-				return not vim.bo.modified
-			end,
-
-			Space,
-		},
 	},
 	sloop,
 
