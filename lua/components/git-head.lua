@@ -1,3 +1,6 @@
+local Space = require 'components.space'
+local GitIcon = { provider = '' }
+
 ---@class components.git-head
 ---@field dict { head: string? }
 local Head = {
@@ -8,10 +11,14 @@ local Head = {
 		self.dict = vim.b.gitsigns_status_dict
 	end,
 
-	---@param self components.git-head
-	provider = function(self)
-		return self.dict.head or '.???'
-	end,
+	GitIcon,
+	Space,
+	{
+		---@param self components.git-head
+		provider = function(self)
+			return self.dict.head or '.???'
+		end,
+	},
 }
 
 return Head
