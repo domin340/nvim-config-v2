@@ -1,5 +1,5 @@
 local utils = require 'heirline.utils'
-local Space = require 'components.dyn-space'
+local Space = require 'lua.components.space'
 
 local function mix(c1, c2, weight)
 	-- 1. Extract RGB from c1
@@ -35,7 +35,7 @@ local function setup_colors()
 	return {
 		fn = fg 'Function',
 		kw = fg 'Keyword',
-		darker_kw = mix(fg 'Keyword', bg 'Normal', 0.25),
+		darker_kw = mix(fg 'Keyword', bg 'StatusLine', 0.5),
 		text = fg 'StatusLine',
 		bg = bg 'StatusLine',
 		str = fg 'String',
@@ -81,7 +81,7 @@ local statusline = {
 	{
 		hl = function()
 			if vim.fn.reg_recording() ~= '' then
-				return { bg = 'darker_kw' }
+				return { bg = 'darker_kw', bold = true }
 			end
 
 			return nil
