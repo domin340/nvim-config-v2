@@ -1,5 +1,5 @@
 local utils = require 'heirline.utils'
-local Space = require 'lua.components.space'
+local Space = require 'components.space'
 
 local function mix(c1, c2, weight)
 	-- 1. Extract RGB from c1
