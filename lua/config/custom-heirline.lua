@@ -35,9 +35,11 @@ local function setup_colors()
 	return {
 		fn = fg 'Function',
 		kw = fg 'Keyword',
-		darker_kw = mix(fg 'Keyword', bg 'StatusLine', 0.5),
+		-- darker_kw = mix(fg 'Keyword', bg 'StatusLine', 0.5),
 		text = fg 'StatusLine',
 		bg = bg 'StatusLine',
+		s1 = mix(bg 'StatusLine', 0x00, 0.4),
+		s2 = mix(bg 'StatusLine', 0x00, 0.2),
 		str = fg 'String',
 	}
 end
@@ -52,20 +54,52 @@ local LastLine = require 'components.last-line'
 local ReadOfPage = require 'components.read-of-page'
 local Mode = require 'components.mode'
 
-local statusline = {
-	hl = { fg = 'text', bg = 'bg' },
+local sloop = { provider = '⎹', hl = { fg = 'text' } }
 
+local Section_1 = {
+	hl = { bg = 's1' },
+
+	Space,
 	IconFname,
+	Space,
 	{
 		hl = { fg = 'str' },
 		Modified,
+		{
+			condition = function()
+				return not vim.bo.modified
+			end,
+
+			Space,
+		},
 	},
+
+	sloop,
+}
+
+local Section_2 = {
+	hl = { bg = 's2' },
+
 	Space,
 	Perms,
 	Space,
+	sloop,
+}
+
+local Section_3 = {
+	Space,
 	Head,
+}
+
+local statusline = {
+	hl = { fg = 'text', bg = 'bg' },
+
+	Section_1,
+	Section_2,
+	Section_3,
 
 	End,
+
 	Space,
 	{
 		hl = { fg = 'fn' },
@@ -76,17 +110,21 @@ local statusline = {
 		provider = '↓',
 		ReadOfPage,
 	},
-
 	Space,
+
+	sloop,
 	{
 		hl = function()
 			if vim.fn.reg_recording() ~= '' then
-				return { bg = 'darker_kw', bold = true }
+				return { fg = 'kw', bold = true }
 			end
 
 			return nil
 		end,
+
+		Space,
 		Mode,
+		Space,
 	},
 }
 
