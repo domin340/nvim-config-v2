@@ -5,6 +5,7 @@ return {
 
 		transparent.setup {
 			extra_groups = {
+				'FloatBorder',
 				'NormalFloat',
 				'NvimTreeNormal',
 			},

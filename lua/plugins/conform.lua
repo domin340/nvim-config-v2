@@ -1,31 +1,24 @@
-local prettier = { 'prettierd', 'prettier' }
-local clang = { 'clang-format' }
-local stylua = { 'stylua' }
-
 return {
 	'stevearc/conform.nvim',
 	opts = {
-	   formatters_by_ft = {
-		   -- <other>
-			lua = stylua,
-			luau = stylua,
-			-- </other>
-
-			c = clang,
-			cpp = clang,
+		formatters_by_ft = {
+			lua = { 'stylua' },
+			luau = { 'stylua' },
+			python = { 'black' },
+			c = { 'clang-format' },
+			cpp = { 'clang-format' },
 
 			-- <web stuff>
-			javascript = prettier,
-			typescript = prettier,
-			javascriptreact = prettier,
-			typescriptreact = prettier,
+			javascript = { 'prettierd', 'prettier' },
+			typescript = { 'prettierd', 'prettier' },
+			javascriptreact = { 'prettierd', 'prettier' },
+			typescriptreact = { 'prettierd', 'prettier' },
 			-- </web stuff>
-
-			-- <config files>
-			html = prettier,
-			json = prettier,
-			yaml = prettier,
-			-- </config files>
+		},
+		formatters = {
+			isort = {
+				prepend_args = { '--profile', 'black' },
+			},
 		},
 	},
 	config = function(_, opts)
