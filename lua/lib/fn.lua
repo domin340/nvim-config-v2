@@ -4,6 +4,12 @@ script consisting of many helper functions
 
 local M = {}
 
+function M.rojo_project()
+	return vim.fs.root(0, function(name)
+		return name:match '.+%.project%.json$'
+	end)
+end
+
 ---@param name string
 function M.hl(name)
 	return vim.api.nvim_get_hl(0, { name = name })
