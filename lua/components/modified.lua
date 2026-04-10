@@ -3,5 +3,5 @@ return {
 		return vim.bo.modified
 	end,
 
-	provider = '•',
+	provider = '[+]',
 }
