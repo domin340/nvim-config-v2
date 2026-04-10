@@ -4,6 +4,30 @@ script consisting of many helper functions
 
 local M = {}
 
+---@param x number
+---@param digits integer? default 0
+function M.round_number(x, digits)
+	digits = digits or 0
+
+	local int = math.floor(x)
+	local rem = (x - int)
+
+	if rem == 0 or digits == 0 then
+		return int
+	end
+
+	local factor = 10 ^ digits
+
+	local truncated
+	if x >= 0 then
+		truncated = math.floor(rem * factor) / factor
+	else
+		truncated = math.ceil(rem * factor) / factor
+	end
+
+	return int + truncated
+end
+
 function M.rojo_project()
 	return vim.fs.root(0, function(name)
 		return name:match '.+%.project%.json$'

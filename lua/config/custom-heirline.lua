@@ -24,6 +24,7 @@ end
 local IconFname = require 'components.icon-fname'
 local Modified = require 'components.modified'
 local Perms = require 'components.perms'
+local FileSize = require 'components.file-size'
 local Head = require 'components.git-head'
 
 local End = { provider = '%=' }
@@ -68,6 +69,12 @@ local statusline = {
 	Segment {
 		Space,
 		Perms,
+		Space,
+	},
+
+	Segment {
+		Space,
+		FileSize,
 		Space,
 	},
 
