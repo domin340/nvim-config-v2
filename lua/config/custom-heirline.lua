@@ -33,52 +33,74 @@ local Mode = require 'components.mode'
 
 local sloop = { provider = '│', hl = { fg = 'text' } }
 
+---@class custom-heirline-components-segment
+---@field children table
+---@field no_sep boolean?
+
+---@overload fun(components: table[]): table
+---@overload fun(components: custom-heirline-components-segment): table
+---@param components table[] | custom-heirline-components-segment
+local function Segment(components)
+	if components.children then
+		local segment = { components.children }
+
+		if not components.no_sep then
+			table.insert(segment, sloop)
+		end
+
+		return segment
+	end
+
+	return {
+		components,
+		sloop,
+	}
+end
+
 local statusline = {
-	Space,
-	IconFname,
-	Space,
-	{
-		hl = { fg = 'str' },
+	Segment {
+		Space,
+		IconFname,
+		Space,
 		Modified,
 	},
-	sloop,
 
-	Space,
-	Perms,
-	Space,
-
-	sloop,
+	Segment {
+		Space,
+		Perms,
+		Space,
+	},
 
 	Space,
 	Head,
 
 	End,
 
-	Space,
-	{
-		hl = { fg = 'fn' },
+	Segment {
+		Space,
 		LastLine,
-	},
-	Space,
-	{
-		provider = '↓',
-		ReadOfPage,
-	},
-	Space,
-
-	sloop,
-	{
-		hl = function()
-			if vim.fn.reg_recording() ~= '' then
-				return { fg = 'kw', bold = true }
-			end
-
-			return nil
-		end,
-
 		Space,
-		Mode,
-		Space,
+		{
+			provider = '↓',
+			ReadOfPage,
+		},
+	},
+
+	Segment {
+		no_sep = true,
+		children = {
+			hl = function()
+				if vim.fn.reg_recording() ~= '' then
+					return { fg = 'kw', bold = true }
+				end
+
+				return nil
+			end,
+
+			Space,
+			Mode,
+			Space,
+		},
 	},
 }
 
