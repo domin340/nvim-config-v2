@@ -71,8 +71,13 @@ local statusline = {
 		Space,
 	},
 
-	Space,
-	Head,
+	Segment {
+		no_sep = true,
+		children = {
+			Space,
+			Head,
+		},
+	},
 
 	End,
 
