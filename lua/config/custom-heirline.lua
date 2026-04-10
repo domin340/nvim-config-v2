@@ -89,6 +89,7 @@ local statusline = {
 			provider = '↓',
 			ReadOfPage,
 		},
+		Space,
 	},
 
 	Segment {
