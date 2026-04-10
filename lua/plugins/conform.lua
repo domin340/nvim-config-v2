@@ -8,9 +8,10 @@ return {
 		formatters_by_ft = {
 			lua = { 'stylua' },
 			luau = { 'stylua' },
-			python = { 'black' },
-			c = { 'clang-format' },
-			cpp = { 'clang-format' },
+			-- python = { 'black' },
+			-- c = { 'clang-format' },
+			-- cpp = { 'clang-format' },
+			odin = { 'odinfmt' },
 
 			-- <web stuff>
 			javascript = { 'prettierd', 'prettier' },
@@ -22,6 +23,11 @@ return {
 		formatters = {
 			isort = {
 				prepend_args = { '--profile', 'black' },
+			},
+			odinfmt = {
+				command = 'odinfmt',
+				args = { '-stdin' },
+				stdin = true,
 			},
 		},
 	},

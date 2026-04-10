@@ -2,9 +2,9 @@ local lib = require 'lib'
 local dap = require 'dap'
 
 dap.adapters.lldb = {
-  type = 'executable',
-  command = lib.fn.get_mason_package('codelldb/extension/adapter/codelldb'),
-  name = 'lldb'
+	type = 'executable',
+	command = lib.fn.get_mason_package 'codelldb/extension/adapter/codelldb',
+	name = 'lldb',
 }
 
 dap.configurations.c = {
@@ -34,6 +34,6 @@ dap.configurations.c = {
 	},
 }
 
+dap.configurations.odin = dap.configurations.c
 dap.configurations.cpp = dap.configurations.c
 dap.configurations.rust = dap.configurations.c
-
