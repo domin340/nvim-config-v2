@@ -61,7 +61,7 @@ return {
 				severity_sort = true,
 			}
 
-			require 'config.enable_lsps'
+			require 'config.enable-lsps'
 		end,
 	},
 }
