@@ -53,9 +53,9 @@ else
 end
 
 vim.lsp.enable {
-	'ols',
 	'ts_ls',
 	'lua_ls',
+	'zls',
 	-- 'clangd',
 	-- 'pyright',
 }

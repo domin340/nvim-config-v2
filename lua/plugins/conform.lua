@@ -6,12 +6,16 @@ return {
 			lsp_fallback = true,
 		},
 		formatters_by_ft = {
+			-- <lua>
 			lua = { 'stylua' },
 			luau = { 'stylua' },
-			-- python = { 'black' },
-			-- c = { 'clang-format' },
-			-- cpp = { 'clang-format' },
-			odin = { 'odinfmt' },
+			-- </lua>
+
+			-- <other>
+			python = { 'black' },
+			c = { 'clang-format' },
+			cpp = { 'clang-format' },
+			-- </other>
 
 			-- <web stuff>
 			javascript = { 'prettierd', 'prettier' },
