@@ -28,11 +28,6 @@ return {
 			isort = {
 				prepend_args = { '--profile', 'black' },
 			},
-			odinfmt = {
-				command = 'odinfmt',
-				args = { '-stdin' },
-				stdin = true,
-			},
 		},
 	},
 	config = function(_, opts)
